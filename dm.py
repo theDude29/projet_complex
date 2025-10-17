@@ -4,6 +4,23 @@ import copy
 import time
 import matplotlib.pyplot as plt
 
+def chargerGraphe(chemin):
+	fichier = open(chemin)
+	lignes = fichier.readlines()
+
+	nb_sommets = int(lignes[1])
+	sommets = []
+	for i in range(3, 3+nb_sommets):
+		sommets.append(int(lignes[i]))
+
+	nb_aretes = int(lignes[3+nb_sommets+1])
+	liste_adjacence = [[] for _ in range(nb_sommets)]
+	for i in range(3+nb_sommets+3, len(lignes)):
+		u,v = int(lignes[i].split())
+		liste_adjacence[u].append(v)
+		liste_adjacence[v].append(u)
+	return sommets, liste_adjacence
+
 # --------------- Partie 2
 
 # 2.1
