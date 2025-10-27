@@ -592,3 +592,54 @@ def branchement_ameliore2(sommets, liste_adjacence, retourner_nombre_noeuds=Fals
 		return couverture_minimum
 	else:
 		return couverture_minimum, nombre_noeuds
+
+
+#4.4.2
+# Couplage + petit nettoyage pour enlever les sommets inutiles
+
+def est_couverture(sommets, liste_adjacence, C):
+	""" Vérifie si C couvre toutes les arêtes """
+	C = set(C)
+	label_to_index = {label: idx for idx, label in enumerate(sommets)}
+	for i in range(len(sommets)):
+		for v in liste_adjacence[i]:
+			if (sommets[i] not in C) and (v not in C):
+				return False
+	return True
+
+def post_traitement_1opt(sommets, liste_adjacence, C):
+	"""
+	Tant qu'on peut enlever un sommet sans casser la couverture, on le fait.
+	C'est un petit 1-opt de suppression.
+	"""
+	C = set(C)
+	label_to_index = {label: idx for idx, label in enumerate(sommets)}
+	change = True
+	while change:
+		change = False
+		for v in list(C):
+			i = label_to_index.get(v)
+			if i is None:
+				continue
+			voisins = liste_adjacence[i]
+			ok = True
+			for u in voisins:
+				if u not in C:
+					ok = False
+					break
+			if ok:
+				C.remove(v)
+				change = True
+	return list(C)
+
+def algo_couplage_plus(sommets, liste_adjacence):
+	"""
+	Heuristique 4.4.2 :
+	on fait le couplage et ensuite on essaie d'enlever les sommets redondants.
+	"""
+	C_init = list(algo_couplage(sommets, liste_adjacence))
+	C_final = post_traitement_1opt(sommets, liste_adjacence, C_init)
+	if not est_couverture(sommets, liste_adjacence, C_final):
+		# au cas où on a retiré trop, on garde l'ancien
+		return C_init
+	return C_final
