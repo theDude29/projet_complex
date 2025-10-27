@@ -186,10 +186,10 @@ plt.legend()
 plt.show()
 
 #q4.1.2
-#graphiques(dm.branchement, 20)
+graphiques(dm.branchement, 20)
 
 #q4.2.2
-#graphiques(dm.branchement_borne, 20)
+graphiques(dm.branchement_borne, 20)
 
 #q4.2.3
 graphiques(dm.branchement_borne2, 20)

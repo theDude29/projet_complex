@@ -36,7 +36,7 @@ Q4.2.1 : Pour la borne $b_1$, on sait qu'il y a $m$ aretes et que lorsque l'on p
 
 Pour la borne $b_2$, il faut prendre une des deux extremités de chaque arete du couplage dans une couverture. Mais les aretes du couplage ne partagent aucun sommet il faut donc prendre au moins $|M|$ sommets.
 
-Pour la borne $b_3$ on note qu'il y a $|C|$ sommets dans la couverture et $n-|C|$ sommets qui ne sont pas dans la couverture. Ainsi,  $m \leq \frac{|C|(|C|-1)}{2} + (n-|C|)|C|$ (en effet, chaque sommet de $C$ est connecté à au plus tout les autres sommets du graphe et les sommets qui ne sont pas dans la couverture ne peuvent pas être lié entre eux sinon il y aurait des aretes non couvertes... la formule s'obtient ensuite par combinatoire). Les racines de $|C| + (1-2n)|C| + 2m = 0$ sont $|C| = \frac{2n - 1 \pm \sqrt{(2n-1)^2 - 8m}}{2}$ donc $m \leq \frac{|C|(|C|-1)}{2} + (n-|C|)|C| \iff |C| \in [\frac{2n - 1 - \sqrt{(2n-1)^2 - 8m}}{2};\frac{2n - 1 + \sqrt{(2n-1)^2 - 8m}}{2}]$ donc $|C| \leq \frac{2n - 1 + \sqrt{(2n-1)^2 - 8m}}{2}$ ce qui est le résultat attendu. \\
+Pour la borne $b_3$ on note qu'il y a $|C|$ sommets dans la couverture et $n-|C|$ sommets qui ne sont pas dans la couverture. Ainsi,  $m \leq \frac{|C|(|C|-1)}{2} + (n-|C|)|C|$ (en effet, chaque sommet de $C$ est connecté à au plus tout les autres sommets du graphe et les sommets qui ne sont pas dans la couverture ne peuvent pas être lié entre eux sinon il y aurait des aretes non couvertes... la formule s'obtient ensuite par combinatoire). Les racines de $|C| + (1-2n)|C| + 2m = 0$ sont $|C| = \frac{2n - 1 \pm \sqrt{(2n-1)^2 - 8m}}{2}$ donc $m \leq \frac{|C|(|C|-1)}{2} + (n-|C|)|C| \iff |C| \in [\frac{2n - 1 - \sqrt{(2n-1)^2 - 8m}}{2};\frac{2n - 1 + \sqrt{(2n-1)^2 - 8m}}{2}]$ donc $|C| \geq \frac{2n - 1 - \sqrt{(2n-1)^2 - 8m}}{2}$ ce qui est le résultat attendu. \\
 
 Q4.2.2 : 
 Voilà des graphiques permettant de tester le temps ainsi que le nombre de noeuds générés par l'algorithme de branchement avec bornes. On constate effectivement une évolution exponentiel du nombre de noeuds et du temps pris pour executer la fonction en fonction du nombre de noeuds $n$ dans le graphe mais c'est bien plus rapide que sans les bornes !
@@ -62,7 +62,7 @@ Le branchement amélioré fait gagner beaucoup de temps et de noeuds visités !
 \includegraphics{"./q431b.png"}
 
 Q4.3.1 : 
-C'est déjà ce que l'on fait depuis le début sans avoir vu cette question.
+C'est déjà ce que l'on fait depuis le début sans avoir vu cette question. \\
 
 Q4.3.3 :
 Soit $G$ un graphe et $C$ un couverture minimale de $G$ ainsi que $s$ un sommet de degré 1 de $G$. Si $s \in C$, notons $v$ l'unique voisin de $s$ qui n'est pas dans $C$ (il existe sinon $C\textbackslash\{s\}$ est une couverture de taille strictement inférieure à $C$). Alors $(C\textbackslash\{s\}) \cup \{v\}$ est une couverture de $G$ qui ne contient pas $s$. Ainsi pour tout sommet $s$ de degré 1, il existe une couverture qui ne contient pas $s$. \\
