@@ -11,6 +11,8 @@
 \author{Rémi Pérenne et Viktoriia Skrypnyk}
 \maketitle
 
+Note : les temps sont exprimés en secondes. \\
+
 Q3.1 :
 L'algorithme glouton n'est pas optimale car pour le graphe ci-dessous, il trouve \{0,1,2,3\} comme couverture alors que la couverture minimale est \{1,2,3\}. Il n'est donc pas 1.3-approché.
 
@@ -75,5 +77,11 @@ Voilà des graphiques permettant de comparer les rapports d'approximation de l'a
 
 \includegraphics{"./q441a.png"}
 \includegraphics{"./q441b.png"}
+
+Q4.4.2 :
+On a ajouté une heuristique qui se base sur l'algorithme de couplage auquel on ajoute une fonction permettant de retirer les sommets inutiles. On observe que le rapport d'approximation est bien meilleur qu'avec l'algorithme de couplage de base et que les temps de calcul ne sont pas beaucoup plus important:
+
+\includegraphics{"./q442a.png"}
+\includegraphics{"./q442b.png"}
 
 \end{document}
