@@ -212,6 +212,12 @@ plt.legend()
 plt.show()
 
 # q4.4.2
+evaluer_rapport_approximation(dm.branchement_ameliore2, dm.algo_couplage, 50)
 evaluer_rapport_approximation(dm.branchement_ameliore2, dm.algo_couplage_plus, 50)
+plt.legend()
+plt.show()
+
+test_temps(dm.algo_couplage, 300, 0.7)
+test_temps(dm.algo_couplage_plus, 300, 0.7)
 plt.legend()
 plt.show()
